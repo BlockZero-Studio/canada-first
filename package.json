@@ -1,0 +1,17 @@
+{
+  "name": "maple-check",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser extension: is the company behind this site Canadian, American, or other?",
+  "type": "module",
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\"",
+    "validate": "node scripts/validate-data.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "safari": "sh scripts/build-safari.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MapleCheck options</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #fff; --fg: #111827; --muted: #6b7280; --border: #e5e7eb; --btn: #f3f4f6; --primary: #d52b1e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #111827; --fg: #f9fafb; --muted: #9ca3af; --border: #374151; --btn: #1f2937; }
+    }
+    body {
+      margin: 0; padding: 24px; max-width: 640px;
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--fg); background: var(--bg);
+    }
+    h1 { font-size: 20px; margin: 0 0 16px; }
+    h2 { font-size: 15px; margin: 24px 0 8px; }
+    section { border-top: 1px solid var(--border); padding-top: 8px; }
+    label.row { display: flex; gap: 10px; align-items: flex-start; margin: 10px 0; }
+    label.row input { margin-top: 4px; }
+    .help { color: var(--muted); font-size: 12px; }
+    button {
+      font: inherit; padding: 6px 12px; border-radius: 6px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--btn); color: var(--fg);
+    }
+    button.danger { color: var(--primary); }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    td, th { text-align: left; padding: 6px 4px; border-bottom: 1px solid var(--border); }
+    .status { color: var(--muted); font-size: 12px; margin-left: 8px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <h1 data-i18n="optionsTitle">MapleCheck options</h1>
+
+  <section>
+    <label class="row">
+      <input type="checkbox" id="opt-wikidata" />
+      <span>
+        <strong data-i18n="optUseWikidata">Use Wikidata for unknown sites</strong><br />
+        <span class="help" data-i18n="optUseWikidataHelp"></span>
+      </span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="opt-banner" />
+      <span>
+        <strong data-i18n="optShowBanner">Show US warning banner on page</strong><br />
+        <span class="help" data-i18n="optShowBannerHelp"></span>
+      </span>
+    </label>
+    <span id="settings-status" class="status"></span>
+  </section>
+
+  <section>
+    <h2 data-i18n="optData">Data</h2>
+    <div id="data-count" class="help"></div>
+    <div id="data-version" class="help"></div>
+    <p>
+      <button id="clear-cache" data-i18n="optClearCache">Clear cache</button>
+      <span id="cache-status" class="status"></span>
+    </p>
+  </section>
+
+  <section>
+    <h2 data-i18n="optOverrides">Manual settings</h2>
+    <p id="no-overrides" class="help" data-i18n="optNoOverrides" hidden>No manual settings.</p>
+    <table id="overrides-table" hidden>
+      <thead><tr><th>Domain</th><th>Name</th><th>Country</th><th>Prov.</th><th></th></tr></thead>
+      <tbody id="overrides-body"></tbody>
+    </table>
+  </section>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

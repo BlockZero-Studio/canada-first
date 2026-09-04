@@ -1,0 +1,18 @@
+{
+  "head": { "vars": ["item", "itemLabel", "itemCountryCode", "hq", "hqLabel", "hqCountryCode", "provCode", "parent", "parentLabel", "parentCountryCode"] },
+  "results": {
+    "bindings": [
+      {
+        "item": { "type": "uri", "value": "http://www.wikidata.org/entity/Q364" },
+        "itemLabel": { "xml:lang": "en", "type": "literal", "value": "GitHub" },
+        "itemCountryCode": { "type": "literal", "value": "US" },
+        "hq": { "type": "uri", "value": "http://www.wikidata.org/entity/Q62" },
+        "hqLabel": { "xml:lang": "en", "type": "literal", "value": "San Francisco" },
+        "hqCountryCode": { "type": "literal", "value": "US" },
+        "parent": { "type": "uri", "value": "http://www.wikidata.org/entity/Q2283" },
+        "parentLabel": { "xml:lang": "en", "type": "literal", "value": "Microsoft" },
+        "parentCountryCode": { "type": "literal", "value": "US" }
+      }
+    ]
+  }
+}

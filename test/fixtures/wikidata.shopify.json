@@ -1,0 +1,24 @@
+{
+  "head": { "vars": ["item", "itemLabel", "itemCountryCode", "hq", "hqLabel", "hqCountryCode", "provCode", "parent", "parentLabel", "parentCountryCode"] },
+  "results": {
+    "bindings": [
+      {
+        "item": { "type": "uri", "value": "http://www.wikidata.org/entity/Q7501569" },
+        "itemLabel": { "xml:lang": "en", "type": "literal", "value": "Shopify" },
+        "itemCountryCode": { "type": "literal", "value": "CA" },
+        "hq": { "type": "uri", "value": "http://www.wikidata.org/entity/Q1930" },
+        "hqLabel": { "xml:lang": "en", "type": "literal", "value": "Ottawa" },
+        "hqCountryCode": { "type": "literal", "value": "CA" }
+      },
+      {
+        "item": { "type": "uri", "value": "http://www.wikidata.org/entity/Q7501569" },
+        "itemLabel": { "xml:lang": "en", "type": "literal", "value": "Shopify" },
+        "itemCountryCode": { "type": "literal", "value": "CA" },
+        "hq": { "type": "uri", "value": "http://www.wikidata.org/entity/Q1930" },
+        "hqLabel": { "xml:lang": "en", "type": "literal", "value": "Ottawa" },
+        "hqCountryCode": { "type": "literal", "value": "CA" },
+        "provCode": { "type": "literal", "value": "CA-ON" }
+      }
+    ]
+  }
+}

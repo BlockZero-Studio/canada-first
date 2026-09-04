@@ -1,0 +1,4 @@
+node_modules/
+../maple-check-safari/
+.DS_Store
+*.log

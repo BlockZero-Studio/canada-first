@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MapleCheck</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main id="app" class="card" aria-live="polite">
+    <header id="verdict" class="verdict verdict-UNKNOWN">
+      <span id="verdict-emoji" class="emoji">❓</span>
+      <div class="verdict-text">
+        <div id="verdict-label" class="verdict-label" data-i18n="loading">Checking…</div>
+        <div id="domain" class="domain"></div>
+      </div>
+    </header>
+
+    <section id="details" class="details" hidden>
+      <div id="company-name" class="company"></div>
+      <div id="location" class="muted"></div>
+      <div id="owner" class="owner" hidden></div>
+      <div id="override-note" class="pill" hidden></div>
+      <p id="notes" class="notes" hidden></p>
+      <div id="sources" class="sources" hidden></div>
+    </section>
+
+    <p id="unknown-hint" class="muted" hidden></p>
+
+    <footer class="actions">
+      <a id="suggest" class="btn link" target="_blank" rel="noopener" data-i18n="suggestFix">Wrong? Suggest a fix</a>
+      <button id="set-manually" class="btn" type="button" data-i18n="setManually">Set manually</button>
+      <button id="clear-override" class="btn subtle" type="button" hidden data-i18n="clearOverride">Clear manual setting</button>
+    </footer>
+
+    <form id="override-form" class="override-form" hidden>
+      <label>
+        <span data-i18n="country">Country</span>
+        <select id="ov-country" required>
+          <option value="CA">Canada</option>
+          <option value="US">United States</option>
+          <option value="OTHER">Other country</option>
+        </select>
+      </label>
+      <label id="ov-other-wrap" hidden>
+        <span>ISO code</span>
+        <input id="ov-other" maxlength="2" pattern="[A-Za-z]{2}" placeholder="FR" />
+      </label>
+      <label id="ov-province-wrap">
+        <span data-i18n="province">Province / territory</span>
+        <select id="ov-province"></select>
+      </label>
+      <label>
+        <span data-i18n="companyName">Company name (optional)</span>
+        <input id="ov-name" type="text" />
+      </label>
+      <div class="form-actions">
+        <button type="submit" class="btn primary" data-i18n="save">Save</button>
+        <button type="button" id="ov-cancel" class="btn subtle" data-i18n="cancel">Cancel</button>
+      </div>
+    </form>
+
+    <nav class="bottom">
+      <a id="open-options" href="#" data-i18n="options">Options</a>
+    </nav>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
