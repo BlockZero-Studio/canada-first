@@ -167,7 +167,8 @@ function render(result) {
   }
 
   $("suggest").href = issueUrl(result);
-  $("suggest").hidden = !result.domain;
+  // Hidden until ISSUE_REPO points at a real repository.
+  $("suggest").hidden = !result.domain || ISSUE_REPO.includes("/OWNER/");
   $("set-manually").hidden = !result.domain;
   $("clear-override").hidden = result.source !== "override";
 }
