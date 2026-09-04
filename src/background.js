@@ -6,7 +6,7 @@
 
 import { getRegistrableDomainFromUrl } from "./lib/domain.js";
 import { buildIndex, lookupDomain, classify } from "./lib/lookup.js";
-import { lookupWikidata } from "./lib/wikidata.js";
+import { lookupWikidataDetailed } from "./lib/wikidata.js";
 import { createStore } from "./lib/cache.js";
 
 const api = globalThis.browser ?? globalThis.chrome;
@@ -79,8 +79,10 @@ async function resolveDomain(domain) {
 
   const settings = await store.getSettings();
   if (settings.useWikidata) {
-    const wd = await lookupWikidata(domain);
-    await store.setCached(domain, { entry: wd });
+    const { status, entry: wd } = await lookupWikidataDetailed(domain);
+    // Cache hits and genuine misses; never cache a transient failure
+    // (timeout, 429/5xx), otherwise one bad request sticks for 30 days.
+    if (status !== "error") await store.setCached(domain, { entry: wd });
     if (wd) return { entry: wd, source: "wikidata" };
   }
   return { entry: null, source: "none" };

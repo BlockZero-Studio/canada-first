@@ -6,6 +6,7 @@ import {
   websiteCandidates,
   parseSparqlResponse,
   lookupWikidata,
+  lookupWikidataDetailed,
   SPARQL_ENDPOINT,
 } from "../src/lib/wikidata.js";
 import { classify } from "../src/lib/lookup.js";
@@ -104,4 +105,22 @@ test("lookupWikidata returns null on HTTP error, thrown error and timeout", asyn
   assert.equal(await lookupWikidata("x.com", { fetch: slow, timeoutMs: 30 }), null);
   assert.ok(Date.now() - t0 < 2000);
   assert.equal(await lookupWikidata("", { fetch: async () => ({}) }), null);
+});
+
+test("lookupWikidataDetailed distinguishes hit / miss / error", async () => {
+  const okJson = (bindings) => async () => ({ ok: true, json: async () => ({ results: { bindings } }) });
+  const hit = await lookupWikidataDetailed("shopify.com", {
+    fetch: okJson([{ item: { value: "http://www.wikidata.org/entity/Q1" }, itemCountryCode: { value: "CA" } }]),
+  });
+  assert.equal(hit.status, "hit");
+  assert.equal(hit.entry.country, "CA");
+
+  const miss = await lookupWikidataDetailed("nobody.example", { fetch: okJson([]) });
+  assert.deepEqual(miss, { status: "miss", entry: null });
+
+  assert.equal((await lookupWikidataDetailed("x.com", { fetch: async () => ({ ok: false, status: 429 }) })).status, "error");
+  assert.equal((await lookupWikidataDetailed("x.com", { fetch: async () => { throw new Error("boom"); } })).status, "error");
+  const slow = (url, { signal }) => new Promise((_, reject) => signal.addEventListener("abort", () => reject(new Error("aborted"))));
+  assert.equal((await lookupWikidataDetailed("x.com", { fetch: slow, timeoutMs: 30 })).status, "error");
+  assert.equal((await lookupWikidataDetailed("", { fetch: async () => ({}) })).status, "error");
 });

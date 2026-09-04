@@ -1285,18 +1285,18 @@
       "bmoharris.com"
     ],
     "country": "CA",
-    "province": "QC",
-    "city": "Montréal",
+    "province": "ON",
+    "city": "Toronto",
     "ultimate_parent": {
       "name": "Bank of Montreal",
       "country": "CA",
-      "province": "QC"
+      "province": "ON"
     },
     "type": "public",
     "sources": [
       "https://en.wikipedia.org/wiki/Bank_of_Montreal"
     ],
-    "notes": "Legal head office Montréal; operational HQ Toronto",
+    "notes": "Executive HQ Toronto (First Canadian Place); legal head office remains Montréal. Convention: operational HQ",
     "updated": "2026-09-04"
   },
   {
@@ -1319,7 +1319,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Scotiabank"
     ],
-    "notes": "Legal head office Halifax; executive HQ Toronto. Owns Tangerine",
+    "notes": "Executive HQ Toronto; legal head office remains Halifax. Owns Tangerine. Convention: operational HQ",
     "updated": "2026-09-04"
   },
   {
@@ -2528,9 +2528,7 @@
     "name": "CBC/Radio-Canada",
     "domains": [
       "cbc.ca",
-      "radio-canada.ca",
-      "cbcmusic.ca",
-      "ohdio.ca"
+      "cbcmusic.ca"
     ],
     "country": "CA",
     "province": "ON",
@@ -2544,7 +2542,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/CBC/Radio-Canada"
     ],
-    "notes": "Corporate HQ Ottawa; English HQ Toronto, French HQ Montréal",
+    "notes": "Corporate HQ Ottawa; English services HQ Toronto. French services (Radio-Canada) listed separately",
     "updated": "2026-09-04"
   },
   {
@@ -3621,7 +3619,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Dayforce"
     ],
-    "notes": "Toronto co-HQ; Thoma Bravo take-private announced Aug 2025 — verify closing",
+    "notes": "Toronto co-HQ. Thoma Bravo take-private closed 2026-02-04; delisted from NYSE and TSX",
     "updated": "2026-09-04"
   },
   {
@@ -4189,7 +4187,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Electronic_Arts"
     ],
-    "notes": "$55B take-private led by Saudi PIF announced Sept 2025 — verify closing; large EA Vancouver studio",
+    "notes": "Take-private by Saudi PIF, Silver Lake and Affinity Partners closed 2026-08-04; delisted from Nasdaq. Large EA Vancouver studio",
     "updated": "2026-09-04"
   },
   {
@@ -5849,6 +5847,27 @@
     "updated": "2026-09-04"
   },
   {
+    "id": "haivision",
+    "name": "Haivision Systems Inc.",
+    "domains": [
+      "haivision.com"
+    ],
+    "country": "CA",
+    "province": "QC",
+    "city": "Montréal",
+    "ultimate_parent": {
+      "name": "Haivision Systems Inc.",
+      "country": "CA",
+      "province": "QC"
+    },
+    "type": "public",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Haivision"
+    ],
+    "notes": "TSX: HAI. Added because Wikidata maps haivision.com to its US subsidiary Kulabyte",
+    "updated": "2026-09-04"
+  },
+  {
     "id": "halifax",
     "name": "Halifax Regional Municipality",
     "domains": [
@@ -7444,7 +7463,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Lightspeed_Commerce"
     ],
-    "notes": "",
+    "notes": "Remained public after its 2024–25 strategic review",
     "updated": "2026-09-04"
   },
   {
@@ -9043,15 +9062,15 @@
     "province": "YT",
     "city": "Whitehorse",
     "ultimate_parent": {
-      "name": "Sixty North Unity (Indigenous consortium)",
+      "name": "BCE Inc.",
       "country": "CA",
-      "province": "YT"
+      "province": "QC"
     },
-    "type": "private",
+    "type": "public",
     "sources": [
       "https://en.wikipedia.org/wiki/Northwestel"
     ],
-    "notes": "Bell agreed in 2024 to sell Northwestel to Sixty North Unity, a consortium of northern Indigenous governments; verify closing",
+    "notes": "Still owned by Bell (BCE). The 2024 sale to Sixty North Unity (northern Indigenous consortium) had not closed as of mid-2026; the buyer was still seeking financing",
     "updated": "2026-09-04"
   },
   {
@@ -9323,7 +9342,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Parkland_Corporation"
     ],
-    "notes": "Acquired by Sunoco (Dallas) in 2025; verify closing and post-merger structure",
+    "notes": "Acquired by Sunoco LP (Dallas); deal closed 2025-10-31, Parkland delisted from the TSX 2025-11-04",
     "updated": "2026-09-04"
   },
   {
@@ -10044,6 +10063,29 @@
     "updated": "2026-09-04"
   },
   {
+    "id": "radio-canada",
+    "name": "Radio-Canada (CBC/Radio-Canada, French services)",
+    "domains": [
+      "radio-canada.ca",
+      "ohdio.ca"
+    ],
+    "country": "CA",
+    "province": "QC",
+    "city": "Montréal",
+    "ultimate_parent": {
+      "name": "Government of Canada",
+      "country": "CA",
+      "province": "ON"
+    },
+    "type": "crown",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Ici_Radio-Canada_T%C3%A9l%C3%A9",
+      "https://fr.wikipedia.org/wiki/Radio-Canada"
+    ],
+    "notes": "French-language services of CBC/Radio-Canada, based at the Maison de Radio-Canada in Montréal. Includes OHdio",
+    "updated": "2026-09-04"
+  },
+  {
     "id": "rakuten",
     "name": "Rakuten Group",
     "domains": [
@@ -10545,7 +10587,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Royal_Bank_of_Canada"
     ],
-    "notes": "Legal head office Montréal; operational HQ Toronto",
+    "notes": "Executive HQ Toronto; legal head office remains Montréal. Convention: operational HQ",
     "updated": "2026-09-04"
   },
   {
@@ -11671,7 +11713,7 @@
     "sources": [
       "https://en.wikipedia.org/wiki/Teck_Resources"
     ],
-    "notes": "Merger with Anglo American (UK) announced Sept 2025 — verify status; combined entity to be HQ'd in Vancouver",
+    "notes": "Merger of equals with Anglo American (UK) approved by shareholders Dec 2025; closing still pending Chinese and South Korean approvals (expected Sept 2026 – Mar 2027). Combined Anglo Teck to be headquartered in Vancouver",
     "updated": "2026-09-04"
   },
   {

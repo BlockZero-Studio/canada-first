@@ -160,16 +160,16 @@ export function parseSparqlResponse(json, domain) {
 }
 
 /**
- * Query Wikidata for a domain. Returns an entry or null on any failure
- * (network error, timeout, non-JSON, no match).
+ * Query Wikidata for a domain and report *why* there is no entry, so callers
+ * can cache a genuine miss but not a transient failure (timeout, 429, 5xx).
  * @param {string} domain
  * @param {{fetch?: typeof fetch, timeoutMs?: number}} [opts]
- * @returns {Promise<object|null>}
+ * @returns {Promise<{status: "hit"|"miss"|"error", entry: object|null}>}
  */
-export async function lookupWikidata(domain, opts = {}) {
+export async function lookupWikidataDetailed(domain, opts = {}) {
   const fetchFn = opts.fetch ?? globalThis.fetch;
   const timeoutMs = opts.timeoutMs ?? DEFAULT_TIMEOUT_MS;
-  if (!fetchFn || !domain) return null;
+  if (!fetchFn || !domain) return { status: "error", entry: null };
 
   const url = `${SPARQL_ENDPOINT}?format=json&query=${encodeURIComponent(buildQuery(domain))}`;
   const controller = new AbortController();
@@ -186,12 +186,24 @@ export async function lookupWikidata(domain, opts = {}) {
         "Api-User-Agent": USER_AGENT,
       },
     });
-    if (!res || !res.ok) return null;
+    if (!res || !res.ok) return { status: "error", entry: null };
     const json = await res.json();
-    return parseSparqlResponse(json, domain);
+    const entry = parseSparqlResponse(json, domain);
+    return entry ? { status: "hit", entry } : { status: "miss", entry: null };
   } catch {
-    return null;
+    return { status: "error", entry: null };
   } finally {
     clearTimeout(timer);
   }
+}
+
+/**
+ * Query Wikidata for a domain. Returns an entry or null on any failure
+ * (network error, timeout, non-JSON, no match).
+ * @param {string} domain
+ * @param {{fetch?: typeof fetch, timeoutMs?: number}} [opts]
+ * @returns {Promise<object|null>}
+ */
+export async function lookupWikidata(domain, opts = {}) {
+  return (await lookupWikidataDetailed(domain, opts)).entry;
 }

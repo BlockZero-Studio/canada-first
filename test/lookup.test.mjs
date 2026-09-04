@@ -126,3 +126,25 @@ test("entryFromOverride builds a schema-shaped entry", () => {
   const us = entryFromOverride({ domain: "example.com", country: "US", province: "QC" });
   assert.equal(us.province, null);
 });
+
+test("province comes from the Canadian entity, not its Canadian parent", () => {
+  // WestJet (AB) owned by Onex (ON) must show AB.
+  const v = classify({
+    country: "CA",
+    province: "AB",
+    ultimate_parent: { name: "Onex", country: "CA", province: "ON" },
+  });
+  assert.equal(v.verdict, "CA");
+  assert.equal(v.province, "AB");
+  assert.equal(v.badgeText, "AB");
+});
+
+test("province falls back to the Canadian parent when the entity has none", () => {
+  const v = classify({
+    country: "CA",
+    province: null,
+    ultimate_parent: { name: "P", country: "CA", province: "QC" },
+  });
+  assert.equal(v.province, "QC");
+  assert.equal(v.badgeText, "QC");
+});

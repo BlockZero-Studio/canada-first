@@ -96,11 +96,13 @@ export function classify(entry) {
 
   const foreignOwned = ownCountry === "CA" && parentCountry !== null && parentCountry !== "CA";
 
-  // Province: prefer the parent's province when the parent is Canadian,
-  // otherwise the entry's own province.
+  // Province = HQ province of the Canadian entity behind the site (PRD).
+  // Fall back to the Canadian parent's province only when the entry has none
+  // (e.g. a brand entry without its own HQ).
   let province = null;
   if (effectiveCountry === "CA") {
-    const p = parentCountry === "CA" && parent?.province ? parent.province : entry.province;
+    const own = ownCountry === "CA" ? entry.province : null;
+    const p = typeof own === "string" && own.trim() ? own : parentCountry === "CA" ? parent?.province : null;
     province = typeof p === "string" && p.trim() ? p.trim().toUpperCase() : null;
   }
 
