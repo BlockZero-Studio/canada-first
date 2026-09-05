@@ -90,7 +90,7 @@ test("lookupWikidata uses injected fetch, GET with format=json and UA headers", 
   assert.equal(e.province, "ON");
   assert.ok(seen.url.startsWith(SPARQL_ENDPOINT + "?format=json&query="));
   assert.equal(seen.init.method, "GET");
-  assert.equal(seen.init.headers["User-Agent"], "MapleCheck/0.1 (browser extension)");
+  assert.equal(seen.init.headers["User-Agent"], "CanadaFirst/0.1 (browser extension)");
   assert.ok(seen.init.signal instanceof AbortSignal);
 });
 

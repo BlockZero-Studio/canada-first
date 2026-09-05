@@ -9,19 +9,19 @@
 #   - Run once: `sudo xcodebuild -license accept` (if prompted).
 #   - Make sure icons exist: `npm run icons`.
 #
-# Output: ../maple-check-safari/MapleCheck.xcodeproj (outside this repo; it
+# Output: ../canada-first-safari/CanadaFirst.xcodeproj (outside this repo; it
 # is listed in .gitignore).
 #
 # After the conversion
-#   1. `open ../maple-check-safari/MapleCheck/MapleCheck.xcodeproj` (the
+#   1. `open ../canada-first-safari/CanadaFirst/CanadaFirst.xcodeproj` (the
 #      converter prints the exact path; it opens Xcode automatically unless
 #      --no-open is passed).
-#   2. In Xcode, select the "MapleCheck" app target and, under
+#   2. In Xcode, select the "CanadaFirst" app target and, under
 #      Signing & Capabilities, choose your Personal Team for both the app and
 #      the extension targets.
 #   3. Product > Run (Cmd-R). This builds the host app and registers the
 #      extension with Safari.
-#   4. Safari > Settings > Extensions > enable "MapleCheck".
+#   4. Safari > Settings > Extensions > enable "CanadaFirst".
 #   5. For unsigned/dev builds: Safari > Settings > Advanced > "Show features
 #      for web developers", then Develop > Allow Unsigned Extensions (must be
 #      re-enabled after every Safari restart).
@@ -50,14 +50,14 @@ if [ ! -f icons/icon128.png ]; then
 fi
 
 xcrun safari-web-extension-converter . \
-  --project-location ../maple-check-safari \
-  --app-name MapleCheck \
-  --bundle-identifier studio.blockzero.maplecheck \
+  --project-location ../canada-first-safari \
+  --app-name CanadaFirst \
+  --bundle-identifier studio.blockzero.canadafirst \
   --macos-only \
   --copy-resources \
   --force
 
 echo
 echo "Done. Next: open the Xcode project, pick your Personal Team under"
-echo "Signing & Capabilities, Run, then enable MapleCheck in Safari > Settings > Extensions."
+echo "Signing & Capabilities, Run, then enable CanadaFirst in Safari > Settings > Extensions."
 echo "Dev builds also need Develop > Allow Unsigned Extensions."

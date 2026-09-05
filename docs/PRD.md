@@ -1,4 +1,4 @@
-# PRD — MapleCheck v0.1
+# PRD — CanadaFirst v0.1
 
 ## Problem
 When browsing, you can't tell at a glance whether the company behind a site is Canadian, from which province, or American. "Buy Canadian" decisions need that signal instantly, without research.

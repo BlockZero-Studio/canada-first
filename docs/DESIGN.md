@@ -1,4 +1,4 @@
-# Design / UX — MapleCheck v0.1
+# Design / UX — CanadaFirst v0.1
 
 ## Principle
 Glanceable. The badge is the product; the popup is the explanation.

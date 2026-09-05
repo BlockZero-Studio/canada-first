@@ -2,7 +2,7 @@
 
 export const STRINGS = {
   en: {
-    appName: "MapleCheck",
+    appName: "CanadaFirst",
     verdict_CA: "Canadian",
     verdict_US: "American company",
     verdict_OTHER: "Company from {country}",
@@ -25,12 +25,12 @@ export const STRINGS = {
     clearOverride: "Clear manual setting",
     loading: "Checking…",
     userOverride: "Set manually by you",
-    dataSourceLocal: "MapleCheck data",
+    dataSourceLocal: "CanadaFirst data",
     dataSourceWikidata: "Wikidata (automatic)",
     dataSourceCache: "cached",
     options: "Options",
     // options page
-    optionsTitle: "MapleCheck options",
+    optionsTitle: "CanadaFirst options",
     optUseWikidata: "Use Wikidata for unknown sites",
     optUseWikidataHelp: "When a site is not in the local list, ask Wikidata (query.wikidata.org). Results are cached for 30 days.",
     optShowBanner: "Show US warning banner on page",
@@ -65,7 +65,7 @@ export const STRINGS = {
     },
   },
   fr: {
-    appName: "MapleCheck",
+    appName: "CanadaFirst",
     verdict_CA: "Canadienne",
     verdict_US: "Entreprise américaine",
     verdict_OTHER: "Entreprise de {country}",
@@ -88,11 +88,11 @@ export const STRINGS = {
     clearOverride: "Effacer le réglage manuel",
     loading: "Vérification…",
     userOverride: "Défini manuellement par vous",
-    dataSourceLocal: "Données MapleCheck",
+    dataSourceLocal: "Données CanadaFirst",
     dataSourceWikidata: "Wikidata (automatique)",
     dataSourceCache: "en cache",
     options: "Options",
-    optionsTitle: "Options de MapleCheck",
+    optionsTitle: "Options de CanadaFirst",
     optUseWikidata: "Utiliser Wikidata pour les sites inconnus",
     optUseWikidataHelp: "Quand un site n'est pas dans la liste locale, interroger Wikidata (query.wikidata.org). Les résultats sont conservés en cache 30 jours.",
     optShowBanner: "Afficher une bannière d'avertissement sur les sites américains",

@@ -5,7 +5,7 @@ const api = globalThis.browser ?? globalThis.chrome;
 const i18n = createI18n();
 const { t } = i18n;
 
-const ISSUE_REPO = "https://github.com/OWNER/maple-check/issues/new";
+const ISSUE_REPO = "https://github.com/OWNER/canada-first/issues/new";
 
 const EMOJI = { CA: "🍁", US: "⚠️", OTHER: "🌐", UNKNOWN: "❓" };
 

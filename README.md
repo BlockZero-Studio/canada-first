@@ -1,4 +1,4 @@
-# MapleCheck 🍁
+# CanadaFirst 🍁
 
 A tiny browser extension that tells you, for the site you're on, whether the company behind it is **Canadian** (and from which province), **American**, or from somewhere else.
 
@@ -19,7 +19,7 @@ Click the badge for details: company name, city, ultimate owner, and the sources
 2. Open `chrome://extensions` (or `edge://extensions`, `brave://extensions`).
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and pick the unzipped folder (the one with `manifest.json`).
-5. Pin MapleCheck to your toolbar and browse.
+5. Pin CanadaFirst to your toolbar and browse.
 
 Safari support is coming; it needs a signed build.
 

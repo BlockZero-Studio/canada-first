@@ -1,9 +1,9 @@
-# Day-1 plan — ship MapleCheck v0.1 tomorrow
+# Day-1 plan — ship CanadaFirst v0.1 tomorrow
 
 State at hand-off: scaffold complete, 57/57 tests green, data validator green (640 companies, 1,683 domains). Remaining work is integration, polish, and manual QA. Estimated 3–4 h in Claude Code.
 
 ## 1. Init (10 min)
-- `git init && git add -A && git commit -m "MapleCheck v0.1 scaffold"`; create GitHub repo; replace `OWNER` in `src/popup/popup.js` (`ISSUE_REPO`).
+- `git init && git add -A && git commit -m "CanadaFirst v0.1 scaffold"`; create GitHub repo; replace `OWNER` in `src/popup/popup.js` (`ISSUE_REPO`).
 - `npm test && npm run validate`.
 
 ## 2. Chrome smoke (30 min)
@@ -32,7 +32,7 @@ Test 5 domains not in seed with known Wikidata P856 (e.g. `clio.com` if absent, 
 ## 6. Polish (30 min)
 - OTHER verdict: show country name instead of ISO code in popup header (`Intl.DisplayNames`).
 - Popup width/dark mode check in both browsers. French check with browser in fr-CA.
-- Bump `version` to 0.1.0, tag, `zip -r maple-check-0.1.0.zip . -x '.git/*' 'test/*'` for sharing.
+- Bump `version` to 0.1.0, tag, `zip -r canada-first-0.1.0.zip . -x '.git/*' 'test/*'` for sharing.
 
 ## 7. Verification gate
 - `npm test` green · `npm run validate` green · 20-site smoke correct in both browsers · unknown → manual override round-trip works · no console errors in service worker.

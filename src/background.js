@@ -1,4 +1,4 @@
-// MapleCheck background service worker (MV3, ES module).
+// CanadaFirst background service worker (MV3, ES module).
 //
 // Resolution order for a tab's registrable domain:
 //   user override (storage.sync) -> local index (data/companies.json)
@@ -36,7 +36,7 @@ function getIndex() {
         };
         return buildIndex(companies);
       } catch (err) {
-        console.warn("[MapleCheck] could not load data/companies.json:", err);
+        console.warn("[CanadaFirst] could not load data/companies.json:", err);
         indexPromise = null; // allow a retry on the next call
         return new Map();
       }
@@ -98,14 +98,14 @@ async function setBadge(tabId, verdict, title) {
     await api.action.setTitle({ tabId, title });
   } catch (err) {
     // Tab may have closed in the meantime.
-    console.debug("[MapleCheck] badge update failed", err?.message);
+    console.debug("[CanadaFirst] badge update failed", err?.message);
   }
 }
 
 async function clearBadge(tabId) {
   try {
     await api.action.setBadgeText({ tabId, text: "" });
-    await api.action.setTitle({ tabId, title: "MapleCheck" });
+    await api.action.setTitle({ tabId, title: "CanadaFirst" });
   } catch {
     /* ignore */
   }
@@ -129,11 +129,11 @@ async function processTab(tabId, url) {
       const verdict = classify(entry);
       result = { domain, url, entry, verdict, source };
     } catch (err) {
-      console.warn("[MapleCheck] resolve failed", err);
+      console.warn("[CanadaFirst] resolve failed", err);
       result = unknownResult(domain, url, "error");
     }
     tabResults.set(tabId, result);
-    const titleParts = ["MapleCheck", result.verdict.label];
+    const titleParts = ["CanadaFirst", result.verdict.label];
     if (result.entry?.name) titleParts.push(result.entry.name);
     await setBadge(tabId, result.verdict, titleParts.join(" — "));
     return result;
@@ -151,7 +151,7 @@ async function processActiveTab() {
     const [tab] = await api.tabs.query({ active: true, lastFocusedWindow: true });
     if (tab?.id !== undefined && tab.url) await processTab(tab.id, tab.url);
   } catch (err) {
-    console.debug("[MapleCheck] processActiveTab", err?.message);
+    console.debug("[CanadaFirst] processActiveTab", err?.message);
   }
 }
 

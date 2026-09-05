@@ -1,4 +1,4 @@
-# MapleCheck — Claude Code project guide
+# CanadaFirst — Claude Code project guide
 
 Browser extension (Chrome + Safari on Mac) that shows, for the site you're on, whether the company behind it is **Canadian (and which province)**, **American (warning)**, or other.
 

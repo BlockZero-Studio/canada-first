@@ -1,4 +1,4 @@
-# MapleCheck — developer notes
+# CanadaFirst — developer notes
 
 Browser extension (Manifest V3) that shows, for the site you are on, whether the
 company behind it is **Canadian** (and which province), **American** (warning),
@@ -14,7 +14,7 @@ default, cached 30 days). You can override any site manually.
 1. `npm run icons` (once, generates `icons/*.png`).
 2. Open `chrome://extensions`, enable **Developer mode** (top right).
 3. **Load unpacked** and pick this folder (the one with `manifest.json`).
-4. Pin MapleCheck in the toolbar. Browse to a site and click the icon.
+4. Pin CanadaFirst in the toolbar. Browse to a site and click the icon.
 
 Also works in Edge/Brave/Arc the same way.
 
@@ -26,7 +26,7 @@ Requires Xcode. Then:
 npm run safari        # runs scripts/build-safari.sh (xcrun safari-web-extension-converter)
 ```
 
-Open the generated Xcode project in `../maple-check-safari`, set your Personal
+Open the generated Xcode project in `../canada-first-safari`, set your Personal
 Team under *Signing & Capabilities*, **Run**, then enable the extension in
 *Safari > Settings > Extensions*. For dev builds also enable
 *Develop > Allow Unsigned Extensions*. See the comments in

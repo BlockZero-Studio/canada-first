@@ -1,4 +1,4 @@
-# Architecture — MapleCheck v0.1
+# Architecture — CanadaFirst v0.1
 
 ## Runtime
 Manifest V3, module service worker, vanilla ES modules, no bundler. Same code runs in Chrome and Safari (Safari wraps it in a macOS app via `safari-web-extension-converter`).
@@ -34,7 +34,7 @@ SPARQL against `query.wikidata.org`: item whose P856 (official website) matches 
 - `storage.sync`: `overrides` → {domain: entry}. Synced across the user's browsers (Chrome). Safari sync works via iCloud only when signed app; fine for dev.
 
 ## Safari packaging
-`./scripts/build-safari.sh` → `xcrun safari-web-extension-converter` → `../maple-check-safari/` Xcode project (macOS only, bundle id `studio.blockzero.maplecheck`). Run from Xcode with a personal team; enable in Safari → Settings → Extensions; for unsigned dev: Develop → Allow Unsigned Extensions. Guards in code: `setBadgeTextColor` optional; `browser` namespace preferred.
+`./scripts/build-safari.sh` → `xcrun safari-web-extension-converter` → `../canada-first-safari/` Xcode project (macOS only, bundle id `studio.blockzero.canadafirst`). Run from Xcode with a personal team; enable in Safari → Settings → Extensions; for unsigned dev: Develop → Allow Unsigned Extensions. Guards in code: `setBadgeTextColor` optional; `browser` namespace preferred.
 
 ## Testing
 `node --test test/*.test.mjs` — 57 tests: domain parsing (25), lookup/classify (14), Wikidata parsing (8), cache/overrides/settings with in-memory storage mock (7), i18n key parity (3). Data integrity via `npm run validate`. Manual smoke list in `docs/PLAN-DAY1.md`.

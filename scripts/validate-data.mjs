@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Validates data/companies.json for MapleCheck.
+// Validates data/companies.json for CanadaFirst.
 // Usage: node scripts/validate-data.mjs [path/to/companies.json]
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";

@@ -12,7 +12,7 @@
 //   Q11828004 province of Canada, Q3750285 territory of Canada
 
 export const SPARQL_ENDPOINT = "https://query.wikidata.org/sparql";
-export const USER_AGENT = "MapleCheck/0.1 (browser extension)";
+export const USER_AGENT = "CanadaFirst/0.1 (browser extension)";
 export const DEFAULT_TIMEOUT_MS = 8000;
 
 /**
