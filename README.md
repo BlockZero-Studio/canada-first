@@ -30,6 +30,18 @@ Safari support is coming; it needs a signed build.
 - Sites not in the list are looked up on Wikidata (public, no account). You can turn that off in Options.
 - No tracking, no accounts, nothing leaves your browser except the optional Wikidata lookup.
 
+## Privacy: where your data goes
+
+- **Everything runs in your browser.** The extension reads the domain of the tab you are on and matches it against a list bundled inside the extension. There is no CanadaFirst server, no account, no analytics.
+- **One optional outside lookup.** When a domain is not in the bundled list, the extension sends that domain name, and nothing else, to Wikidata's public query service (`query.wikidata.org`, run by the Wikimedia Foundation) to find the company's country and headquarters. You can turn this off in Options, after which unknown sites simply show `?`.
+- **What is stored, and where.** Three things, all in your browser's local extension storage on this device:
+  - **Lookup cache**: for domains checked on Wikidata, the result (company name, country, province, parent company) or a "not found" marker, kept for 30 days. Options > Clear cache removes them all.
+  - **Manual settings**: the country and province you set yourself for a site. These use the browser's sync storage, so if your browser profile syncs, they follow you to your other devices.
+  - **Options**: whether the Wikidata lookup is on.
+- **What is never recorded**: page contents, full URLs, browsing history, or anything that identifies you. Domains you visit are not sent anywhere except the single Wikidata request described above.
+
+Uninstalling the extension deletes all of it.
+
 ## Something wrong?
 
 Wrong country or province? Click the badge, then **Set manually** to fix it for yourself, and tell me which site so I can fix it for everyone. This is version 0.1, expect gaps.
