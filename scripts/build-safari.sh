@@ -64,6 +64,17 @@ xcrun safari-web-extension-converter "$STAGE" \
   --copy-resources \
   --force
 
+# The converter derives the app id from --app-name (studio.blockzero.CanadaFirst)
+# but the extension id from --bundle-identifier (…canadafirst.Extension); the
+# case mismatch fails Xcode's "embedded binary prefix" check. Normalize, and
+# align the marketing version with manifest.json.
+PBX="../canada-first-safari/CanadaFirst/CanadaFirst.xcodeproj/project.pbxproj"
+VERSION="$(node -p "require('./manifest.json').version")"
+sed -i '' \
+  -e 's/PRODUCT_BUNDLE_IDENTIFIER = studio\.blockzero\.CanadaFirst;/PRODUCT_BUNDLE_IDENTIFIER = studio.blockzero.canadafirst;/' \
+  -e "s/MARKETING_VERSION = 1\.0;/MARKETING_VERSION = $VERSION;/" \
+  "$PBX"
+
 echo
 echo "Done. Next: open the Xcode project, pick your Personal Team under"
 echo "Signing & Capabilities, Run, then enable CanadaFirst in Safari > Settings > Extensions."
