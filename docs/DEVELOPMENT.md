@@ -32,6 +32,20 @@ Team under *Signing & Capabilities*, **Run**, then enable the extension in
 *Develop > Allow Unsigned Extensions*. See the comments in
 `scripts/build-safari.sh` for details.
 
+No Apple developer identity? Build ad-hoc from the command line instead of
+Xcode, then launch the host app once so Safari registers the extension:
+
+```sh
+cd ../canada-first-safari/CanadaFirst
+xcodebuild -project CanadaFirst.xcodeproj -scheme CanadaFirst -configuration Debug \
+  -derivedDataPath build CODE_SIGN_STYLE=Manual CODE_SIGN_IDENTITY="-" DEVELOPMENT_TEAM="" build
+open build/Build/Products/Debug/CanadaFirst.app
+pluginkit -m -p com.apple.Safari.web-extension | grep canadafirst   # should list the extension
+```
+
+Then *Safari > Settings > Extensions > CanadaFirst* and *Develop > Allow
+Unsigned Extensions*. Re-run both commands after every JS change.
+
 ## Tests
 
 ```sh
