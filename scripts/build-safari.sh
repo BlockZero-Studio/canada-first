@@ -49,7 +49,14 @@ if [ ! -f icons/icon128.png ]; then
   node scripts/make-icons.mjs
 fi
 
-xcrun safari-web-extension-converter . \
+# Stage only the runtime files so .git, tests, docs and scripts are not
+# bundled into the Safari app.
+STAGE="$(mktemp -d "${TMPDIR:-/tmp}/canada-first-stage.XXXXXX")"
+trap 'rm -rf "$STAGE"' EXIT
+cp -R manifest.json README.md src data icons "$STAGE"/
+find "$STAGE" -name .DS_Store -delete
+
+xcrun safari-web-extension-converter "$STAGE" \
   --project-location ../canada-first-safari \
   --app-name CanadaFirst \
   --bundle-identifier studio.blockzero.canadafirst \
