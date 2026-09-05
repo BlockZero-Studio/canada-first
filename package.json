@@ -8,7 +8,8 @@
     "test": "node --test \"test/*.test.mjs\"",
     "validate": "node scripts/validate-data.mjs",
     "icons": "node scripts/make-icons.mjs",
-    "safari": "sh scripts/build-safari.sh"
+    "safari": "sh scripts/build-safari.sh",
+    "safari:install": "sh scripts/install-safari-adhoc.sh"
   },
   "engines": {
     "node": ">=20"
