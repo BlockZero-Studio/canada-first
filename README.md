@@ -46,4 +46,8 @@ Uninstalling the extension deletes all of it.
 
 Wrong country or province? Click the badge, then **Set manually** to fix it for yourself, and tell me which site so I can fix it for everyone. This is version 0.1, expect gaps.
 
-Version 0.1.0 · MIT
+## Licence
+
+Code: [MIT](LICENSE), © 2026 BlockZero Innovations Inc. Company dataset (`data/companies.json`): [CC BY 4.0](data/LICENSE). Results fetched from Wikidata are CC0.
+
+Version 0.1.0

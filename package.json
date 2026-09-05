@@ -14,5 +14,6 @@
   "engines": {
     "node": ">=20"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "author": "BlockZero Innovations Inc."
 }
