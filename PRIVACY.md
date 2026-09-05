@@ -14,9 +14,8 @@ CanadaFirst is a browser extension published by **BlockZero Innovations Inc.** (
 
 Under section 3.1 of the Act, the person in charge of the protection of personal information at BlockZero is its President.
 
-> **Person in charge:** [Name], President, BlockZero Innovations Inc.
-> **Contact:** [privacy contact email]
-> **Address:** [postal address], Québec, Canada
+> **Person in charge:** The President, BlockZero Innovations Inc.
+> **Contact:** legal@blockzero.ca
 
 ## 3. What the extension processes, and where
 
@@ -75,7 +74,7 @@ You may address any complaint to the person in charge (section 2). You may also 
 
 ## 12. Changes
 
-We will update this policy when the extension's behaviour changes, revise the effective date above, and, for material changes, mention it in the extension's release notes. The current version is always published at [URL of this page].
+We will update this policy when the extension's behaviour changes, revise the effective date above, and, for material changes, mention it in the extension's release notes. The current version is always published at https://www.blockzero.ca/privacy-policy/canadafirst.
 
 ## 13. Governing law
 
@@ -99,9 +98,8 @@ CanadaFirst est une extension de navigateur publiée par **BlockZero Innovations
 
 Conformément à l'article 3.1 de la Loi, la personne responsable de la protection des renseignements personnels chez BlockZero est son président.
 
-> **Responsable :** [Nom], président, BlockZero Innovations Inc.
-> **Contact :** [courriel de contact]
-> **Adresse :** [adresse postale], Québec, Canada
+> **Responsable :** Le président, BlockZero Innovations Inc.
+> **Contact :** legal@blockzero.ca
 
 ## 3. Ce que l'extension traite, et où
 
@@ -160,7 +158,7 @@ Vous pouvez adresser toute plainte à la personne responsable (article 2). Vous 
 
 ## 12. Modifications
 
-Nous mettrons cette politique à jour lorsque le comportement de l'extension changera, en révisant la date d'entrée en vigueur ci-dessus et, pour tout changement important, en le signalant dans les notes de version. La version courante est toujours publiée à [adresse de cette page].
+Nous mettrons cette politique à jour lorsque le comportement de l'extension changera, en révisant la date d'entrée en vigueur ci-dessus et, pour tout changement important, en le signalant dans les notes de version. La version courante est toujours publiée à https://www.blockzero.ca/privacy-policy/canadafirst.
 
 ## 13. Droit applicable
 

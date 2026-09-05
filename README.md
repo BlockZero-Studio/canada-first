@@ -40,7 +40,7 @@ Safari support is coming; it needs a signed build.
   - **Options**: whether the Wikidata lookup is on.
 - **What is never recorded**: page contents, full URLs, browsing history, or anything that identifies you. Domains you visit are not sent anywhere except the single Wikidata request described above.
 
-Uninstalling the extension deletes all of it. Full details, including your rights under Québec law, are in the [privacy policy](PRIVACY.md) (English and French).
+Uninstalling the extension deletes all of it. Full details, including your rights under Québec law, are in the [privacy policy](PRIVACY.md) (English and French), also published at https://www.blockzero.ca/privacy-policy/canadafirst.
 
 ## Something wrong?
 
