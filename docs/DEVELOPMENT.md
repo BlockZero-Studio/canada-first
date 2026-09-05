@@ -36,11 +36,12 @@ No Apple developer identity? Build ad-hoc and install from the command line:
 
 ```sh
 ./scripts/build-safari.sh            # converter -> ../canada-first-safari (once, and after JS changes)
-./scripts/install-safari-adhoc.sh    # xcodebuild ad-hoc -> ~/Applications/CanadaFirst.app, launch, register
+./scripts/install-safari-adhoc.sh    # xcodebuild ad-hoc -> /Applications/CanadaFirst.app, launch, register
 ```
 
-Then *Safari > Develop > Allow Unsigned Extensions* (resets on every Safari
-launch) and *Safari > Settings > Extensions > CanadaFirst*. Do not copy the
+Then quit and relaunch Safari (it caches its signing verdict per extension id
+for the whole session), *Safari > Develop > Allow Unsigned Extensions* (resets
+on every Safari launch) and *Safari > Settings > Extensions > CanadaFirst*. Do not copy the
 .app into ~/Documents (Finder xattrs break the signature) and do not re-sign
 it with `codesign --deep` (drops the sandbox entitlement); see the script.
 
