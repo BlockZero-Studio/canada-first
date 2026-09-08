@@ -2,7 +2,7 @@
 
 ## Before store submission
 - [ ] Publish the privacy policy (`PRIVACY.md`, English + French) at https://www.blockzero.ca/privacy-policy/canadafirst — both the Chrome Web Store and App Store Connect fetch that URL.
-- [ ] Create the GitHub repo (`canada-first`) and set `ISSUE_REPO` in `src/popup/popup.js`, which re-enables "Suggest a fix".
+- [x] Create the GitHub repo (BlockZero-Studio/canada-first) and set `ISSUE_REPO` in `src/popup/popup.js`.
 - [ ] Have counsel skim `PRIVACY.md`, especially the section 17 (outside-Québec) assessment.
 - [ ] Rename the project folder from `maple-check` to `canada-first`.
 

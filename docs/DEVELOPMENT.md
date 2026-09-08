@@ -111,4 +111,4 @@ a Canadian company with a foreign parent is flagged ("Canadian brand, US-owned")
 3. Reload the extension (`chrome://extensions` → reload icon).
 
 Users can also click **Wrong? Suggest a fix** in the popup, which opens a
-pre-filled GitHub issue (repo URL is a placeholder in `src/popup/popup.js`).
+pre-filled GitHub issue on BlockZero-Studio/canada-first.
