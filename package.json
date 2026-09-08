@@ -9,7 +9,9 @@
     "validate": "node scripts/validate-data.mjs",
     "icons": "node scripts/make-icons.mjs",
     "safari": "sh scripts/build-safari.sh",
-    "safari:install": "sh scripts/install-safari-adhoc.sh"
+    "safari:install": "sh scripts/install-safari-adhoc.sh",
+    "package": "sh scripts/package.sh",
+    "store-assets": "node scripts/make-store-assets.mjs"
   },
   "engines": {
     "node": ">=20"
