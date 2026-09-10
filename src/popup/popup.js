@@ -245,12 +245,23 @@ function wire() {
   $("review-go").addEventListener("click", async () => {
     if (!pendingReview) return;
     const { domain, entry } = pendingReview;
-    const url = reviewIssueUrl(pendingReview);
-    pendingReview = null;
-    await send({ type: "SET_OVERRIDE", domain, entry });
-    $("review-confirm").hidden = true;
-    await load();
-    await api.tabs.create({ url });
+    const err = $("review-error");
+    err.hidden = true;
+    try {
+      const url = reviewIssueUrl(pendingReview);
+      // Save first. Opening a tab usually closes the popup, so nothing after
+      // tabs.create() is guaranteed to run.
+      await send({ type: "SET_OVERRIDE", domain, entry });
+      pendingReview = null;
+      $("review-confirm").hidden = true;
+      if (api.tabs?.create) await api.tabs.create({ url, active: true });
+      else window.open(url, "_blank", "noopener");
+      await load();
+    } catch (e) {
+      err.textContent = t("reviewError", { error: e?.message ?? String(e) });
+      err.hidden = false;
+      $("review-confirm").hidden = false;
+    }
   });
 
   $("clear-override").addEventListener("click", async () => {

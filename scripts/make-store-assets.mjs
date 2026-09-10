@@ -47,8 +47,8 @@ function popupHtml(domain, lang) {
     ${e?.notes ? `<p class="notes">${esc(e.notes)}</p>` : ""}
     <div class="sources"><span class="muted">${S.source}: </span>${sources}</div>
   </section>
-  <footer class="actions"><a class="btn link" href="#">${esc(S.suggestFix)}</a><button class="btn">${esc(S.setManually)}</button></footer>
-  <nav class="bottom"><a href="#">${esc(S.options)}</a></nav></main>`;
+  <footer class="actions"><button class="btn">${esc(S.setManually)}</button></footer>
+  <nav class="bottom"><a href="#">${esc(S.options)}</a><a href="#">${esc(S.suggestFix)}</a></nav></main>`;
 }
 
 const badgeOf = (domain) => classify(lookupDomain(index, domain));

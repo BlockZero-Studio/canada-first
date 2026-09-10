@@ -132,9 +132,13 @@ body {
 .review-fields dd { margin: 0 0 6px; word-break: break-word; }
 
 .bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
   padding: 10px 16px 0;
   font-size: 12px;
 }
 .bottom a { color: var(--muted); }
+.error { margin: 0 0 8px; color: var(--primary); font-size: 12px; }
 
 [hidden] { display: none !important; }

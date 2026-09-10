@@ -28,7 +28,6 @@
     <p id="unknown-hint" class="muted" hidden></p>
 
     <footer class="actions">
-      <a id="suggest" class="btn link" target="_blank" rel="noopener" data-i18n="suggestFix">Wrong? Suggest a fix</a>
       <button id="set-manually" class="btn" type="button" data-i18n="setManually">Set manually</button>
       <button id="clear-override" class="btn subtle" type="button" hidden data-i18n="clearOverride">Clear manual setting</button>
     </footer>
@@ -65,6 +64,7 @@
       <h2 id="review-title" data-i18n="reviewTitle">Submit for review</h2>
       <p class="muted" data-i18n="reviewIntro"></p>
       <dl id="review-fields" class="review-fields"></dl>
+      <p id="review-error" class="error" hidden></p>
       <div class="form-actions">
         <button type="button" id="review-go" class="btn primary" data-i18n="reviewContinue">Continue to GitHub</button>
         <button type="button" id="review-cancel" class="btn subtle" data-i18n="cancel">Cancel</button>
@@ -73,6 +73,7 @@
 
     <nav class="bottom">
       <a id="open-options" href="#" data-i18n="options">Options</a>
+      <a id="suggest" target="_blank" rel="noopener" data-i18n="suggestFix">Something wrong? Suggestion</a>
     </nav>
   </main>
   <script type="module" src="popup.js"></script>
