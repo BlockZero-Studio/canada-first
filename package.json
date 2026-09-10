@@ -11,7 +11,8 @@
     "safari": "sh scripts/build-safari.sh",
     "safari:install": "sh scripts/install-safari-adhoc.sh",
     "package": "sh scripts/package.sh",
-    "store-assets": "node scripts/make-store-assets.mjs"
+    "store-assets": "node scripts/make-store-assets.mjs",
+    "harness": "node scripts/harness/serve.mjs"
   },
   "engines": {
     "node": ">=20"

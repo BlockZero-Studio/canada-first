@@ -44,7 +44,7 @@ Uninstalling the extension deletes all of it. Full details, including your right
 
 ## Something wrong?
 
-Wrong country or province? Click the badge, then **Set manually** to fix it for yourself, and tell me which site so I can fix it for everyone. This is version 0.1, expect gaps.
+Wrong country or province? Click the badge, then **Set manually** to fix it for yourself. **Save & submit for review** also opens a pre-filled GitHub issue, after showing you exactly what it contains, so the fix can reach everyone. This is version 0.1, expect gaps.
 
 ## Licence
 

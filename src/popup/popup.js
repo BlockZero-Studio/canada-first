@@ -1,17 +1,29 @@
 import { createI18n } from "../lib/i18n.js";
 import { entryFromOverride } from "../lib/lookup.js";
+import { fixIssueUrl, reviewFields, reviewIssueUrl } from "../lib/issue.js";
 
 const api = globalThis.browser ?? globalThis.chrome;
 const i18n = createI18n();
 const { t } = i18n;
-
-const ISSUE_REPO = "https://github.com/BlockZero-Studio/canada-first/issues/new";
 
 const EMOJI = { CA: "🍁", US: "⚠️", OTHER: "🌐", UNKNOWN: "❓" };
 
 const $ = (id) => document.getElementById(id);
 
 let current = null; // last GET_VERDICT result
+let pendingReview = null; // { domain, entry, previous, version } awaiting confirmation
+
+/** Build an override entry from the manual-setting form. */
+function entryFromForm() {
+  let country = $("ov-country").value;
+  if (country === "OTHER") country = $("ov-other").value.trim().toUpperCase() || "XX";
+  return entryFromOverride({
+    domain: current.domain,
+    country,
+    province: country === "CA" ? $("ov-province").value : null,
+    name: $("ov-name").value.trim() || null,
+  });
+}
 
 function send(msg) {
   return new Promise((resolve, reject) => {
@@ -65,23 +77,6 @@ function regionName(code) {
   } catch {
     return code;
   }
-}
-
-function issueUrl(result) {
-  const title = `Fix: ${result.domain ?? "unknown domain"}`;
-  const body = [
-    `Domain: ${result.domain ?? ""}`,
-    `URL: ${result.url ?? ""}`,
-    `Current verdict: ${result.verdict?.verdict ?? ""} (${result.source})`,
-    `Current entry: ${result.entry ? `${result.entry.name} [${result.entry.id}]` : "none"}`,
-    "",
-    "What is wrong / what should it be?",
-    "",
-    "Sources (links):",
-    "",
-  ].join("\n");
-  const q = new URLSearchParams({ title, body, labels: "data" });
-  return `${ISSUE_REPO}?${q.toString()}`;
 }
 
 function render(result) {
@@ -166,9 +161,8 @@ function render(result) {
     hint.hidden = true;
   }
 
-  $("suggest").href = issueUrl(result);
-  // Hidden until ISSUE_REPO points at a real repository.
-  $("suggest").hidden = !result.domain || ISSUE_REPO.includes("/OWNER/");
+  $("suggest").href = fixIssueUrl(result);
+  $("suggest").hidden = !result.domain;
   $("set-manually").hidden = !result.domain;
   $("clear-override").hidden = result.source !== "override";
 }
@@ -176,6 +170,8 @@ function render(result) {
 function showForm(show) {
   const form = $("override-form");
   form.hidden = !show;
+  $("review-confirm").hidden = true;
+  pendingReview = null;
   if (show) {
     const e = current?.entry;
     const country = e?.country && ["CA", "US"].includes(e.country) ? e.country : e?.country ? "OTHER" : "CA";
@@ -212,17 +208,49 @@ function wire() {
   $("override-form").addEventListener("submit", async (ev) => {
     ev.preventDefault();
     if (!current?.domain) return;
-    let country = $("ov-country").value;
-    if (country === "OTHER") country = $("ov-other").value.trim().toUpperCase() || "XX";
-    const entry = entryFromOverride({
-      domain: current.domain,
-      country,
-      province: country === "CA" ? $("ov-province").value : null,
-      name: $("ov-name").value.trim() || null,
-    });
-    await send({ type: "SET_OVERRIDE", domain: current.domain, entry });
+    await send({ type: "SET_OVERRIDE", domain: current.domain, entry: entryFromForm() });
     showForm(false);
     await load();
+  });
+
+  // "Save & submit for review": show exactly what the GitHub issue will
+  // contain, then save the override and open the pre-filled issue in a tab.
+  $("ov-submit").addEventListener("click", () => {
+    if (!current?.domain || !$("override-form").reportValidity()) return;
+    pendingReview = { domain: current.domain, entry: entryFromForm(), previous: current, version: api.runtime.getManifest?.().version };
+    const dl = $("review-fields");
+    dl.innerHTML = "";
+    for (const [key, value] of reviewFields(pendingReview)) {
+      const dt = document.createElement("dt");
+      dt.textContent = t("field" + key[0].toUpperCase() + key.slice(1));
+      const dd = document.createElement("dd");
+      // Human-readable in the panel; the issue itself carries the raw codes.
+      if (key === "country") dd.textContent = i18n.countryName(value) === value ? value : `${i18n.countryName(value)} (${value})`;
+      else if (key === "province") dd.textContent = `${i18n.provinceName(value)} (${value})`;
+      else if (key === "previousVerdict") dd.textContent = verdictHeadline(current.verdict);
+      else dd.textContent = value;
+      dl.append(dt, dd);
+    }
+    $("override-form").hidden = true;
+    $("review-confirm").hidden = false;
+    $("review-go").focus();
+  });
+
+  $("review-cancel").addEventListener("click", () => {
+    $("review-confirm").hidden = true;
+    $("override-form").hidden = false;
+    pendingReview = null;
+  });
+
+  $("review-go").addEventListener("click", async () => {
+    if (!pendingReview) return;
+    const { domain, entry } = pendingReview;
+    const url = reviewIssueUrl(pendingReview);
+    pendingReview = null;
+    await send({ type: "SET_OVERRIDE", domain, entry });
+    $("review-confirm").hidden = true;
+    await load();
+    await api.tabs.create({ url });
   });
 
   $("clear-override").addEventListener("click", async () => {

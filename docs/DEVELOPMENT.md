@@ -45,6 +45,14 @@ on every Safari launch) and *Safari > Settings > Extensions > CanadaFirst*. Do n
 .app into ~/Documents (Finder xattrs break the signature) and do not re-sign
 it with `codesign --deep` (drops the sandbox entitlement); see the script.
 
+## Popup harness (UI checks without loading the extension)
+
+```sh
+npm run harness        # http://127.0.0.1:8765/ renders src/popup with a mocked chrome.* API
+```
+
+`scripts/harness/index.html` fakes `GET_VERDICT` for an unknown domain and records what `tabs.create` would open. Edit the `result` object there to stage other verdicts.
+
 ## Tests
 
 ```sh

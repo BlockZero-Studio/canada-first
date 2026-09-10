@@ -58,7 +58,7 @@ Under sections 27 to 28.1 of the Act you have the right to access, rectify and, 
 
 ## 8. Reporting a suggested correction
 
-The optional *Suggest a fix* button opens a pre-filled issue on a public GitHub page. Anything you submit there is public and is handled by GitHub, Inc. under its own terms. Please do not include personal information in such reports.
+The optional *Suggest a fix* and *Save & submit for review* buttons open a pre-filled issue on a public GitHub page; before opening it, the extension shows you the exact fields it will contain (website domain, country, province, optional company name, what the extension showed, extension version). Anything you submit there is public and is handled by GitHub, Inc. under its own terms. Please do not include personal information in such reports.
 
 ## 9. Children
 
@@ -142,7 +142,7 @@ Les articles 27 à 28.1 de la Loi vous confèrent des droits d'accès, de rectif
 
 ## 8. Signalement d'une correction
 
-Le bouton facultatif *Suggérer une correction* ouvre un rapport prérempli sur une page GitHub publique. Tout ce que vous y soumettez est public et traité par GitHub, Inc. selon ses propres conditions. N'y incluez aucun renseignement personnel.
+Les boutons facultatifs *Proposer une correction* et *Enregistrer et soumettre pour révision* ouvrent un rapport prérempli sur une page GitHub publique ; avant de l'ouvrir, l'extension vous montre les champs exacts qu'il contiendra (domaine du site, pays, province, nom d'entreprise facultatif, ce que l'extension affichait, version de l'extension). Tout ce que vous y soumettez est public et traité par GitHub, Inc. selon ses propres conditions. N'y incluez aucun renseignement personnel.
 
 ## 9. Mineurs
 

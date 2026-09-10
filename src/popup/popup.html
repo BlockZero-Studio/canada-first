@@ -56,9 +56,20 @@
       </label>
       <div class="form-actions">
         <button type="submit" class="btn primary" data-i18n="save">Save</button>
+        <button type="button" id="ov-submit" class="btn" data-i18n="submitReview">Save &amp; submit for review</button>
         <button type="button" id="ov-cancel" class="btn subtle" data-i18n="cancel">Cancel</button>
       </div>
     </form>
+
+    <section id="review-confirm" class="review-confirm" hidden role="dialog" aria-labelledby="review-title">
+      <h2 id="review-title" data-i18n="reviewTitle">Submit for review</h2>
+      <p class="muted" data-i18n="reviewIntro"></p>
+      <dl id="review-fields" class="review-fields"></dl>
+      <div class="form-actions">
+        <button type="button" id="review-go" class="btn primary" data-i18n="reviewContinue">Continue to GitHub</button>
+        <button type="button" id="review-cancel" class="btn subtle" data-i18n="cancel">Cancel</button>
+      </div>
+    </section>
 
     <nav class="bottom">
       <a id="open-options" href="#" data-i18n="options">Options</a>

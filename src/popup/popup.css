@@ -117,7 +117,19 @@ body {
   background: var(--bg);
   color: var(--fg);
 }
-.form-actions { display: flex; gap: 8px; }
+.form-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.review-confirm {
+  margin: 12px 16px 0;
+  padding: 12px;
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+}
+.review-confirm h2 { margin: 0 0 6px; font-size: 14px; }
+.review-confirm p { margin: 0 0 8px; }
+.review-fields { margin: 0 0 10px; font-size: 12px; }
+.review-fields dt { color: var(--muted); }
+.review-fields dd { margin: 0 0 6px; word-break: break-word; }
 
 .bottom {
   padding: 10px 16px 0;
