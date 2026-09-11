@@ -1,0 +1,5 @@
+<!doctype html><meta charset="utf-8"><script>
+// Fetches a same-origin file and posts its bytes to the embedding page.
+const p = new URLSearchParams(location.search).get("file");
+fetch(p).then(r => r.arrayBuffer()).then(buf => parent.postMessage({ relay: p, buf }, "*", [buf])).catch(e => parent.postMessage({ relay: p, error: String(e) }, "*"));
+</script>

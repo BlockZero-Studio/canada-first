@@ -12,7 +12,7 @@ createServer(async (req, res) => {
   if (!file.startsWith(ROOT)) { res.writeHead(403); return res.end(); }
   try {
     const body = await readFile(file);
-    res.writeHead(200, { "content-type": TYPES[path.extname(file)] ?? "application/octet-stream", "cache-control": "no-store" });
+    res.writeHead(200, { "content-type": TYPES[path.extname(file)] ?? "application/octet-stream", "cache-control": "no-store", "access-control-allow-origin": "*" });
     res.end(body);
   } catch { res.writeHead(404); res.end("not found"); }
 }).listen(8765, "127.0.0.1", () => console.log("harness on http://127.0.0.1:8765/"));
